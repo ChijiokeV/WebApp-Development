@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Components Order form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Order Form for Computer Components</h1>
+    <form id="orderForm">
+        <label for="cpu">CPU:</label>
+        <select id="cpu" name="cpu">
+            <option value="intel">Intel</option>
+            <option value="amd">AMD</option>
+        </select><br>
+
+        <label for="ram">RAM:</label>
+        <input type="number" id="ram" name="ram" min="4" step="4"><br><br>
+
+        <label for="storage">Storage:</label>
+        <input type="number" id="storage" name="storage" min="128" step="128"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

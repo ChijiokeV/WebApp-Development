@@ -1,0 +1,35 @@
+/**
+ * perform a statistical method, specifically linear regression to find the best-fit line
+ * @param {Array} x - Array of x values
+ * @param {Array} y - Array of y values
+ * @returns {object} - object containing slop and initercept of the best-fit line
+ */
+
+function linearRegression (x, y) { 
+    //making sure that both arrays have thesame length
+    if (x.length !==y.length) throw new console.error("Array must be of thesame length"); 
+
+    const n = x.length;
+    let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+
+    // here we will calculate the sums 
+    for (let i = 0; i < n; i++) {
+        sumX += x[i];
+        sumY += y[i];
+        sumXY += x[i] * y[i];
+        sumXX +=  x[i] * x[i];
+
+    } 
+
+    // here we will calculate the slope (m) and intercept (b)
+    const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+    const intercept = (sumY - slope * sumX) / n;
+
+    return {slope , intercept}; 
+
+}
+
+const x = [4, 6, 8, 2, 10];
+const y = [6, 8, 2, 12, 16];
+const result = linearRegression(x, y);
+console.log(`Slope: ${result.slope}, Intercept: ${result.intercept}`);
